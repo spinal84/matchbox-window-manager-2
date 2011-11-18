@@ -1600,7 +1600,7 @@ mb_wm_get_desktop_geometry (MBWindowManager *wm, MBGeometry * geom)
 void
 mb_wm_update_workarea (MBWindowManager *wm, const MBGeometry *geo)
 {
-  static CARD32 val[4];
+  static long val[4];
 
   if (val[0] == geo->x && val[1] == geo->y
       && val[2] == geo->width && val[3] == geo->height)
@@ -1622,7 +1622,7 @@ mb_wm_update_root_win_rectangles (MBWindowManager *wm)
   Display * dpy = wm->xdpy;
   Window    root = wm->root_win->xwindow;
   MBGeometry d_geom;
-  CARD32 val[2];
+  long val[2];
 
   mb_wm_get_desktop_geometry (wm, &d_geom);
   mb_wm_update_workarea (wm, &d_geom);
