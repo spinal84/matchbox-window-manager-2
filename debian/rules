@@ -10,7 +10,7 @@ else
 CFLAGS += -O0
 endif
 
-DEB_DH_STRIP_ARGS := --dbg-package=libmatchbox2
+DEB_DH_STRIP_ARGS := --dbg-package=libmatchbox2-dbg
 
 makebuilddir/libmatchbox2::
 	[ -f configure ] || autoreconf -i -f
