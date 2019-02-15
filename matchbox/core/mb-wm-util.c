@@ -286,12 +286,13 @@ mb_wm_util_warn (const char *format, ...)
   char    *msg = NULL;
 
   va_start(ap, format);
-  vasprintf(&msg, format, ap);
+  if (vasprintf(&msg, format, ap) == -1)
+    fprintf(stderr, "matchbox-window-manager: out of memory?\n");
+  else
+    fprintf(stderr, "*MBWM Warning*  %s\n", msg);
   va_end(ap);
 
-  fprintf(stderr, "*MBWM Warning*  %s\n", msg);
-
-  if (msg) free(msg);
+  free(msg);
 }
 
 MBWMList*
