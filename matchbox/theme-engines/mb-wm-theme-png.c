@@ -74,6 +74,10 @@ mb_wm_theme_png_destroy (MBWMObject *obj)
   MBWMThemePng * theme = MB_WM_THEME_PNG (obj);
   Display * dpy = MB_WM_THEME (obj)->wm->xdpy;
 
+#if USE_PANGO
+  g_object_unref (theme->context);
+#endif
+
   XRenderFreePicture (dpy, theme->xpic);
   XFreePixmap (dpy, theme->xdraw);
 
@@ -112,8 +116,8 @@ mb_wm_theme_png_init (MBWMObject *obj, va_list vap)
     return 0;
 
 #if USE_PANGO
-  p_theme->context = pango_xft_get_context (xdpy, xscreen);
   p_theme->fontmap = pango_xft_get_font_map (xdpy, xscreen);
+  p_theme->context = pango_font_map_create_context (p_theme->fontmap);
 #endif
 
   return 1;
