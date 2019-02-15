@@ -1,8 +1,9 @@
 #!/usr/bin/make -f
-include /usr/share/cdbs/1/rules/debhelper.mk
-include /usr/share/cdbs/1/class/autotools.mk
+%:
+	dh $@
 
-DEB_CONFIGURE_EXTRA_FLAGS := --enable-png-theme --with-pango DEB_VERSION=$(shell dpkg-parsechangelog | sed -ne 's/^Version: //p')
+CONFFLAGS := --enable-png-theme --with-pango \
+        DEB_VERSION=$(shell dpkg-parsechangelog | sed -ne 's/^Version: //p')
 
 ifeq (,$(findstring debug,$(DEB_BUILD_OPTIONS)))
 CFLAGS += -DG_DEBUG_DISABLE
@@ -10,7 +11,5 @@ else
 CFLAGS += -O0
 endif
 
-DEB_DH_STRIP_ARGS := --dbg-package=libmatchbox2-dbg
-
-makebuilddir/libmatchbox2::
-	[ -f configure ] || autoreconf -i -f
+override_dh_auto_configure:
+	dh_auto_configure -- $(CONFFLAGS)

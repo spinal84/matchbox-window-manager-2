@@ -3,7 +3,6 @@ Section: libs
 Priority: optional
 Maintainer: Arthur Demchenkov <spinal.by@gmail.com>
 Build-Depends:
- cdbs (>= 0.4.21),
  debhelper (>= 10),
  pkg-config (>= 0.18),
  libx11-dev,
@@ -57,10 +56,3 @@ Description: shared library for Matchbox Project applications [runtime]
  applications.
  .
  This package contains the libmatchbox runtime library.
-
-Package: libmatchbox2-dbg
-Section: libdevel
-Architecture: any
-Depends: libmatchbox2 (= ${source:Version})
-Description: libmatchbox2 debug symbols
- This package contains the libmatchbox debug symbols.
