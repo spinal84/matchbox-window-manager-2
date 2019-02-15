@@ -1,5 +1,6 @@
 #include "mb-wm.h"
 #include <ctype.h> 		/* isalpha etc */
+#include <X11/XKBlib.h>
 
 /**
  * All the keybinding information: a list of keybindings and the current
@@ -332,7 +333,7 @@ next_item:
 Bool
 mb_wm_keys_init(MBWindowManager *wm)
 {
-  int              mod_idx, mod_key, col, kpm;
+  int              mod_idx, mod_key, group, kpm;
   XModifierKeymap *mod_map;
   MBWMKeys        *keys;
 
@@ -349,10 +350,10 @@ mb_wm_keys_init(MBWindowManager *wm)
     for (mod_key = 0; mod_key < kpm; mod_key++)
       {
 	KeySym last_sym = 0;
-	for (col = 0; col < 4; col += 2)
+	for (group = 0; group < 2; group++)
 	  {
 	    KeyCode code = mod_map->modifiermap[mod_idx * kpm + mod_key];
-	    KeySym sym = (code ? XKeycodeToKeysym(wm->xdpy, code, col) : 0);
+	    KeySym sym = (code ? XkbKeycodeToKeysym(wm->xdpy, code, group, 0) : 0);
 
 	    if (sym == last_sym) continue;
 	    last_sym = sym;
