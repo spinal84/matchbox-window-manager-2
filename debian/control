@@ -10,7 +10,7 @@ Build-Depends:
  libxext-dev,
  libxt-dev,
  libglib2.0-dev,
- libpng12-dev,
+ libpng-dev,
  libpango1.0-dev,
  libxcomposite-dev,
  libxdamage-dev,
@@ -25,7 +25,7 @@ Depends:
  libmatchbox2 (= ${source:Version}),
  libglib2.0-dev,
  libpango1.0-dev,
- libpng12-dev,
+ libpng-dev,
  libx11-dev,
  libxext-dev,
  libclutter-0.8-dev
