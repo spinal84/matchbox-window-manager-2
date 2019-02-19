@@ -31,7 +31,7 @@ mb_wm_client_override_stack (MBWindowManagerClient *client,
   mb_wm_stack_move_top(client);
 
   mb_wm_util_list_foreach (t, (MBWMListForEachCB)mb_wm_client_stack,
-			   (void*)flags);
+			   (void*)(long)flags);
 
   mb_wm_util_list_free (t);
 }
