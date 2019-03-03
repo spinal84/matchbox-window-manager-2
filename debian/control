@@ -4,17 +4,8 @@ Priority: optional
 Maintainer: Arthur Demchenkov <spinal.by@gmail.com>
 Build-Depends:
  debhelper (>= 10),
- pkg-config (>= 0.18),
- libx11-dev,
- x11proto-core-dev,
- libxext-dev,
- libxt-dev,
- libglib2.0-dev,
- libpng-dev,
- libpango1.0-dev,
- libxcomposite-dev,
- libxdamage-dev,
- libclutter-0.8-dev (>> 0.8.2-0maemo56)
+ libclutter-0.8-dev,
+ libgtk2.0-dev,
 Standards-Version: 4.3.0
 
 Package: libmatchbox2
@@ -24,7 +15,8 @@ Multi-arch: same
 Depends:
  ${shlibs:Depends},
  ${misc:Depends},
- libclutter-0.8-0
+ libclutter-0.8-0,
+ libgtk2.0-0,
 Replaces: matchbox (<< 1:0.8.2)
 Description: shared library for Matchbox Project applications [runtime]
  Matchbox is a base environment for the X Window System running on non-desktop
@@ -42,12 +34,8 @@ Architecture: any
 Multi-arch: same
 Depends:
  libmatchbox2 (= ${source:Version}),
- libglib2.0-dev,
- libpango1.0-dev,
- libpng-dev,
- libx11-dev,
- libxext-dev,
- libclutter-0.8-dev
+ libclutter-0.8-dev,
+ libgtk2.0-dev,
 Replaces: matchbox (<< 1:0.8.2)
 Description: shared library for Matchbox Project applications [development]
  Matchbox is a base environment for the X Window System running on non-desktop
