@@ -17,7 +17,6 @@ Depends:
  ${misc:Depends},
  libclutter-0.8-0,
  libgtk2.0-0,
-Replaces: matchbox (<< 1:0.8.2)
 Description: shared library for Matchbox Project applications [runtime]
  Matchbox is a base environment for the X Window System running on non-desktop
  embedded platforms such as handhelds, set-top boxes, kiosks and anything else
@@ -36,7 +35,6 @@ Depends:
  libmatchbox2 (= ${source:Version}),
  libclutter-0.8-dev,
  libgtk2.0-dev,
-Replaces: matchbox (<< 1:0.8.2)
 Description: shared library for Matchbox Project applications [development]
  Matchbox is a base environment for the X Window System running on non-desktop
  embedded platforms such as handhelds, set-top boxes, kiosks and anything else
