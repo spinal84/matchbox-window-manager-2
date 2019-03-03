@@ -1,3 +1,9 @@
+matchbox-window-manager-2 (0.3.0-1) unstable; urgency=medium
+
+  * Port to Debian Stretch
+
+ -- Arthur Demchenkov <spinal.by@gmail.com>  Sun, 03 Mar 2019 15:43:58 +0300
+
 matchbox-window-manager-2 (0.2.92-2) unstable; urgency=low
 
   * Fixes version clash with Nokia maemo versions,
